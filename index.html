@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="Pudilicious - Surga Puding Lezat dengan Cita Rasa Manis dan Lembut" />
+    <meta name="author" content="Pudilicious Dessert" />
+    <title>Pudilicious - Surga Puding Lezat</title>
+
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+    <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+    <link href="css/styles.css" rel="stylesheet" />
+
+    <style>
+      body {
+        background-color: #ffeef5;
+        font-family: 'Poppins', sans-serif;
+      }
+
+      #mainNav {
+        background-color: #fff;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+      }
+
+      #mainNav .navbar-brand {
+        font-family: 'Pacifico', cursive;
+        color: #ff6fa5 !important;
+        font-size: 1.8rem;
+      }
+
+      #mainNav .nav-link {
+        color: #ff6fa5 !important;
+        font-weight: 600;
+      }
+
+      header.masthead {
+        background-image: url('assets/img/header-bg.jpg');
+        background-size: cover;
+        background-position: center;
+        text-align: center;
+        color: white;
+        padding: 12rem 0;
+      }
+
+      header.masthead .masthead-heading {
+        font-family: 'Pacifico', cursive;
+        font-size: 3rem;
+        color: #ff9ec7;
+      }
+
+      header.masthead .masthead-subheading {
+        font-size: 1.25rem;
+        color: #fff;
+        opacity: 0.9;
+      }
+
+      .btn-primary {
+        background-color: #ff8fc1;
+        border: none;
+      }
+
+      .btn-primary:hover {
+        background-color: #ff6fa5;
+      }
+
+      .section-heading {
+        font-family: 'Pacifico', cursive;
+        color: #ff6fa5;
+      }
+
+      .section-subheading {
+        color: #b85c84;
+      }
+
+      .portfolio-item img {
+        border-radius: 20px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      }
+
+      .portfolio-caption {
+        background: white;
+        padding: 1.5rem;
+        border-radius: 15px;
+        text-align: center;
+        margin-top: -1rem;
+      }
+
+      .portfolio-caption-heading {
+        color: #ff6fa5;
+        font-size: 1.25rem;
+        font-weight: 600;
+      }
+
+      .portfolio-caption-subheading {
+        color: #b85c84;
+        font-size: 0.95rem;
+      }
+
+      .price {
+        color: #ff6fa5;
+        font-weight: 700;
+        margin-top: 0.5rem;
+      }
+
+      footer {
+        background-color: #fff;
+        padding: 2rem 0;
+        color: #b85c84;
+      }
+
+      /* Modal keranjang */
+      .modal-content {
+        border-radius: 15px;
+      }
+
+      .cart-item {
+        border-bottom: 1px solid #f0c3d2;
+        padding: 10px 0;
+      }
+
+      /* Notifikasi */
+      #cartNotification {
+        position: fixed;
+        top: 80px;
+        right: 20px;
+        background-color: #ffb6d5;
+        color: #5a2a2a;
+        padding: 12px 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+        font-weight: 600;
+        opacity: 0;
+        transition: opacity 0.4s ease, transform 0.4s ease;
+        transform: translateY(-10px);
+        z-index: 2000;
+      }
+
+      #cartNotification.show {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      /* Warna pink untuk bagian Hubungi Kami */
+      #contact h2,
+      #contact .section-heading {
+        color: #ff6fa5 !important;
+      }
+
+      #contact strong {
+        color: #ff6fa5 !important;
+      }
+    </style>
+  </head>
+
+  <body id="page-top">
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+      <div class="container">
+        <a class="navbar-brand" href="#page-top">Pudilicious</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive">
+          Menu <i class="fas fa-bars ms-1"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav text-uppercase ms-auto py-4 py-lg-0">
+            <li class="nav-item"><a class="nav-link" href="#products">Produk</a></li>
+            <li class="nav-item"><a class="nav-link" href="#about">Tentang</a></li>
+            <li class="nav-item"><a class="nav-link" href="#contact">Kontak</a></li>
+            <li class="nav-item"><a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#cartModal"><i class="fas fa-shopping-cart"></i> Keranjang</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Header -->
+    <header class="masthead">
+      <div class="container">
+        <div class="masthead-subheading">Manis, Lembut, dan Bikin Bahagia 🍮</div>
+        <div class="masthead-heading text-uppercase">Selamat Datang di Pudilicious!</div>
+        <a class="btn btn-primary btn-xl text-uppercase" href="#products">Lihat Menu</a>
+      </div>
+    </header>
+
+    <!-- Products -->
+    <section class="page-section bg-light" id="products">
+      <div class="container">
+        <div class="text-center">
+          <h2 class="section-heading text-uppercase">Menu Puding Kami</h2>
+          <h3 class="section-subheading text-muted">Setiap gigitan penuh kebahagiaan 💕</h3>
+        </div>
+        <div class="row" id="productList"></div>
+      </div>
+    </section>
+
+    <!-- About -->
+    <section class="page-section" id="about">
+      <div class="container text-center">
+        <h2 class="section-heading text-uppercase">Tentang Pudilicious</h2>
+        <p class="text-muted mt-4">
+          Pudilicious hadir untuk menghadirkan momen manis di setiap gigitan. Kami menggunakan bahan alami pilihan
+          dan resep spesial agar setiap puding terasa lembut, segar, dan penuh cinta.
+        </p>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section class="page-section bg-light" id="contact">
+      <div class="container text-center">
+        <h2 class="section-heading text-uppercase">Hubungi Kami</h2>
+        <p class="text-muted mt-3">
+          Instagram: <strong>@pudilicious.id</strong><br />
+          Email: <strong>pudilicious@gmail.com</strong>
+        </p>
+      </div>
+    </section>
+
+    <!-- Modal Keranjang -->
+    <div class="modal fade" id="cartModal" tabindex="-1">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Keranjang Belanja</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+          </div>
+          <div class="modal-body">
+            <div id="cartItems"></div>
+            <div class="mt-3 fw-bold text-end">Total: <span id="cartTotal">Rp0</span></div>
+          </div>
+          <div class="modal-footer">
+            <button class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
+            <button class="btn btn-primary" id="checkoutBtn">Checkout</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Notifikasi -->
+    <div id="cartNotification">Produk ditambahkan ke keranjang 🍮</div>
+
+    <!-- Footer -->
+    <footer class="footer text-center">
+      <div class="container">
+        <div class="text-muted">© 2025 Pudilicious Dessert. Semua Hak Dilindungi.</div>
+      </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+      const products = [
+        { id: 1, name: 'Puding Ball', price: 15000, img: 'assets/img/portfolio/ball.jpg', variants: ['Cokelat', 'Strawberry', 'Mangga'] },
+        { id: 2, name: 'Puding Mix', price: 25000, img: 'assets/img/portfolio/mix.jpg', variants: ['Coklat Strawberry', 'Coklat Mangga', 'Coklat Matcha'] },
+        { id: 3, name: 'Puding Custom', price: 30000, img: 'assets/img/portfolio/custom.jpg', variants: ['Ulang Tahun', 'Wedding', 'Bridal Shower'] },
+        { id: 4, name: 'Puding Jelly Fruit', price: 15000, img: 'assets/img/portfolio/jelly.jpg', variants: ['Jeruk', 'Strawberry', 'Melon'] },
+        { id: 5, name: 'Puding Karamel', price: 17000, img: 'assets/img/portfolio/caramel.jpg', variants: ['Original', 'Vanilla', 'Cokelat'] },
+        { id: 6, name: 'Pudot', price: 12000, img: 'assets/img/portfolio/pudot.jpg', variants: ['Blueberry', 'Anggur', 'Coklat'] }
+      ];
+
+      const productList = document.getElementById('productList');
+      const cartItemsDiv = document.getElementById('cartItems');
+      const cartTotal = document.getElementById('cartTotal');
+      const notification = document.getElementById('cartNotification');
+      let cart = [];
+
+      products.forEach(p => {
+        const div = document.createElement('div');
+        div.className = 'col-lg-4 col-sm-6 mb-4';
+        div.innerHTML = `
+          <div class="portfolio-item">
+            <img class="img-fluid" src="${p.img}" alt="${p.name}" />
+            <div class="portfolio-caption">
+              <div class="portfolio-caption-heading">${p.name}</div>
+              <div class="price">Rp${p.price.toLocaleString()}</div>
+              <div class="mt-2">
+                <select class="form-select variant-select" data-id="${p.id}">
+                  ${p.variants.map(v => `<option value="${v}">${v}</option>`).join('')}
+                </select>
+              </div>
+              <button class="btn btn-primary mt-3 add-to-cart" data-id="${p.id}">Tambah ke Keranjang</button>
+            </div>
+          </div>`;
+        productList.appendChild(div);
+      });
+
+      document.querySelectorAll('.add-to-cart').forEach(btn => {
+        btn.addEventListener('click', e => {
+          const id = parseInt(e.target.dataset.id);
+          const product = products.find(p => p.id === id);
+          const variant = document.querySelector(`.variant-select[data-id="${id}"]`).value;
+          cart.push({ ...product, variant });
+          updateCart();
+          showNotification(`${product.name} (${variant}) ditambahkan ke keranjang!`);
+        });
+      });
+
+      function updateCart() {
+        cartItemsDiv.innerHTML = '';
+        let total = 0;
+        cart.forEach(item => {
+          total += item.price;
+          cartItemsDiv.innerHTML += `
+            <div class="cart-item d-flex justify-content-between align-items-center">
+              <div>${item.name} - ${item.variant}</div>
+              <div>Rp${item.price.toLocaleString()}</div>
+            </div>`;
+        });
+        cartTotal.textContent = 'Rp' + total.toLocaleString();
+      }
+
+      function showNotification(message) {
+        notification.textContent = message;
+        notification.classList.add('show');
+        setTimeout(() => {
+          notification.classList.remove('show');
+        }, 2500);
+      }
+
+      document.getElementById('checkoutBtn').addEventListener('click', () => {
+        if (cart.length === 0) return showNotification('Keranjang masih kosong!');
+        showNotification('Terima kasih! Pesanan kamu sudah diterima 🍮');
+        cart = [];
+        updateCart();
+        const modal = bootstrap.Modal.getInstance(document.getElementById('cartModal'));
+        modal.hide();
+      });
+    </script>
+  </body>
+</html>
